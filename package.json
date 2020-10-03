@@ -45,10 +45,10 @@
     "zlib": "^1.0.5"
   },
   "devDependencies": {
-    "nuxt": "^2.13.0",
     "@nuxtjs/vuetify": "^1.11.2",
     "cross-env": "^7.0.2",
     "electron": "^9.1.0",
-    "electron-builder": "^22.7.0"
+    "electron-builder": "^22.7.0",
+    "nuxt": "^2.13.0"
   }
 }

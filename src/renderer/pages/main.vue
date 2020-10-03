@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <nuxt-link to="mc_git_launcher/Test">To Test Link</nuxt-link>
+    <nuxt-link to="mc_git_launcher/ExpandHover">To ExpandHover Link</nuxt-link>
     <v-row no-gutters>
       <v-col
         cols="12"
@@ -117,48 +119,48 @@
 </template>
 
 <script>
-  import actionButton from '~/components/actionButton.vue'
+import actionButton from '~/components/actionButton.vue'
 
-  export default {
-    components: {
-      actionButton
-    },
-    data() {
-      return {
-        data: {
-          local: 'C:\\softdata\\git\\hello-git',
-          remote: 'https://github.com/kokoa0429/hello-git.git',
-          mc: {
-            email: '',
-            password: '',
-          },
-          version: '1.15.2',
-          forge: 'forge/forge-1.15.2-31.2.31-installer.jar',
+export default {
+  components: {
+    actionButton
+  },
+  data() {
+    return {
+      data: {
+        local: 'C:\\softdata\\git\\hello-git',
+        remote: 'https://github.com/kokoa0429/hello-git.git',
+        mc: {
+          email: '',
+          password: '',
         },
-        snackbar: false,
-        text: '',
-        password: {
-          show: false,
-          required: value => !!value || 'Required.',
-        },
-        progress: {
-          download: 0,
-          modpack: 0,
-        }
-      }
-    },
-    created() {
-      api.on('modpack-progress', (event, value) => {
-        this.progress.modpack = value
-      })
-    },
-    methods: {
-      notification(newValue) {
-        this.text = newValue.success ? ('Success: ' + newValue.result) : ('Failed: ' + newValue.reason)
-        this.snackbar = true
+        version: '1.15.2',
+        forge: 'forge/forge-1.15.2-31.2.31-installer.jar',
       },
+      snackbar: false,
+      text: '',
+      password: {
+        show: false,
+        required: value => !!value || 'Required.',
+      },
+      progress: {
+        download: 0,
+        modpack: 0,
+      }
     }
+  },
+  created() {
+    api.on('modpack-progress', (event, value) => {
+      this.progress.modpack = value
+    })
+  },
+  methods: {
+    notification(newValue) {
+      this.text = newValue.success ? ('Success: ' + newValue.result) : ('Failed: ' + newValue.reason)
+      this.snackbar = true
+    },
   }
+}
 </script>
 
 <style>
